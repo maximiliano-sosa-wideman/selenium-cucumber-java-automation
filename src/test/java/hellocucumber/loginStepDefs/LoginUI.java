@@ -3,7 +3,6 @@ package hellocucumber.loginStepDefs;
 import hellocucumber.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,9 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
-
-public class Login {
+public class LoginUI {
 
     static LoginPage page;
     static WebDriver driver;

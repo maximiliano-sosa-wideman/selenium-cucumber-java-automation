@@ -1,5 +1,11 @@
 # Automation project to learn Selenium+Cucumber in JAVA
 
+#### Testing object:
+Url: https://club-administration.qa.qubika.com
+
+#### Testing plan (WIP):
+Fully automate at least one use of each functionality
+
 #### To execute:
 ```declarative
 mvn test

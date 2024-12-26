@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d81f17b9-f400-44b7-8f66-9d2deb38c765" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/CategoryEPs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/BaseRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/UtilMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/categoryStepDefs/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/categoryStepDefs/CategoryUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/LoginEPs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/LoginEPs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/HelperMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +45,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Cucumber Java.Feature: Login.executor": "Run",
+    "Cucumber Java.Scenario: Add a simple category.executor": "Run",
     "Cucumber Java.Scenario: Login with a valid user.executor": "Run",
     "Cucumber Java.Scenario: Login with many valid or invalid users.executor": "Run",
     "Cucumber Java.Scenario: Testing the login but with APIs.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/maximilianososa/Documents/GitHub/MaxiDemo/hellocucumber/src",
@@ -52,11 +63,12 @@
       <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hellocucumber.endpoints" />
       <recent name="utils" />
       <recent name="hellocucumber.loginStepDefs" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Testing the login but with APIs">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Add a simple category">
     <configuration name="Feature: Login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="envFilePaths">
@@ -69,6 +81,40 @@
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Feature: Login" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Add a simple category" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/environment.env" />
+      </option>
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Category.feature" />
+      <option name="GLUE" value="hellocucumber.loginStepDefs hellocucumber.categoryStepDefs" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="hellocucumber" />
+      <option name="NAME_FILTER" value="^Add a simple category$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Add a simple category$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Add a simple category" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -162,6 +208,7 @@
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/environment.env" />
+        <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Login.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
@@ -193,12 +240,14 @@
     </configuration>
     <list>
       <item itemvalue="Cucumber Java.Scenario: Testing the login but with APIs" />
+      <item itemvalue="Cucumber Java.Scenario: Add a simple category" />
       <item itemvalue="Cucumber Java.Feature: Login" />
       <item itemvalue="Cucumber Java.Scenario: Login with many valid or invalid users" />
       <item itemvalue="Cucumber Java.Scenario: Login with a valid user" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Scenario: Add a simple category" />
         <item itemvalue="Cucumber Java.Scenario: Login with many valid or invalid users" />
         <item itemvalue="Cucumber Java.Scenario: Login with a valid user" />
         <item itemvalue="Cucumber Java.Feature: Login" />
@@ -215,6 +264,17 @@
       <updated>1734656161290</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
