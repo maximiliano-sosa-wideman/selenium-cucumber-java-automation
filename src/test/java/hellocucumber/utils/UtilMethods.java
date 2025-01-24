@@ -20,33 +20,25 @@ public class UtilMethods {
 
     // Return the last category ID created with the Category Test
     public String getLastCategoryIDFromList(String jsonString){
-        JSONArray jsonArray = new JSONArray(jsonString);
-
-        // Get the last non-null element that has an id
-        String lastId = null;
-        for (int i = jsonArray.length() - 1; i >= 0; i--) {
-            JSONObject item = jsonArray.getJSONObject(i);
-            if (item.has("id") && !item.isNull("id")) {
-                lastId = item.getString("id");
-                break;
-            }
-        }
-        return lastId;
+        return getValueFromKey("id", jsonString);
     }
-    // duplicated code that needs to be better implemented
-    public String getLastCategoryNameFromList(String jsonString){
-//        System.out.println(jsonString);
-        JSONArray jsonArray = new JSONArray(jsonString);
 
-        // Get the last non-null element that has an id
-        String categoryName = null;
+    public String getLastCategoryNameFromList(String jsonString){
+        return getValueFromKey("name", jsonString);
+    }
+
+    private String getValueFromKey(String key, String jsonString){
+        JSONArray jsonArray = new JSONArray(jsonString);
+        
+        String value = null;
         for (int i = jsonArray.length() - 1; i >= 0; i--) {
             JSONObject item = jsonArray.getJSONObject(i);
-            if (item.has("name") && !item.isNull("name")) {
-                categoryName = item.getString("name");
+            if (item.has(key) && !item.isNull(key)) {
+                value = item.getString(key);
                 break;
             }
         }
-        return categoryName;
+        return value;
     }
 }
+
