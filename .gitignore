@@ -1,0 +1,9 @@
+
+*.env
+target/test-classes/hellocucumber/Category.feature
+/target
+/target
+/target/test-classes
+target/test-classes/hellocucumber/Category.feature
+target/test-classes/hellocucumber/Category.feature
+target/test-classes/hellocucumber/Category.feature
