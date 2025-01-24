@@ -40,18 +40,18 @@ public class LoginUI {
 
     @When("a valid email is inputted")
     public void a_valid_email_is_inputed() {
-        page.setEmail(driver, System.getenv("VALID_EMAIL"));
+        page.setEmail(System.getenv("VALID_EMAIL"));
     }
 
     @When("a valid password is inputted")
     public void a_valid_password_is_inputed() {
-        page.setPassword(driver, System.getenv("VALID_PASSWORD"));
+        page.setPassword(System.getenv("VALID_PASSWORD"));
     }
 
     @When("the user clicks the login button")
     public void the_user_clicks_the_login_button() {
         //Actually logging in
-        page.ClickLogin(driver);
+        page.ClickLogin();
     }
 
     @Then("the user logs in")
@@ -67,12 +67,12 @@ public class LoginUI {
 
     @When("the user enters the wrong email as {string}")
     public void theUserEntersTheWrongEmailAsEmail(String email) {
-        page.setEmail(driver, email);
+        page.setEmail(email);
     }
 
     @And("the user enters the wrong password as {string}")
     public void theUserEntersTheWrongPasswordAsPassword(String password) {
-        page.setPassword(driver, password);
+        page.setPassword(password);
     }
 
     @Then("the user cannot log in")

@@ -52,3 +52,4 @@ hs_err_pid*
 target/test-classes/hellocucumber/Category.feature
 /target
 .idea/workspace.xml
+target/test-classes/hellocucumber/pages/LoginPage.class

@@ -27,15 +27,16 @@ public class BaseRequest {
                 .build();
     }
 
-    public HttpRequest prepareRequest(String url, String requestBody, String authToken){
-
-        return HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer" + authToken)
-                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                .build();
-    }
+    // not yet used
+//    public HttpRequest prepareRequest(String url, String requestBody, String authToken){
+//
+//        return HttpRequest.newBuilder()
+//                .uri(URI.create(url))
+//                .header("Content-Type", "application/json")
+//                .header("Authorization", "Bearer" + authToken)
+//                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+//                .build();
+//    }
 
     public HttpRequest prepareDELETERequest(String url, String token){
 

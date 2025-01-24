@@ -42,9 +42,9 @@ public class CategoryUI {
     @Given("a logged in user")
     public void a_Logged_In_User() {
         loginEP = new LoginEPs();
-
-        HttpResponse<String> response = loginEP.login(System.getenv("VALID_EMAIL"), System.getenv("VALID_PASSWORD"));
-
+        HttpResponse<String> response = loginEP.login(
+                System.getenv("VALID_EMAIL"),
+                System.getenv("VALID_PASSWORD"));
         token = response.body();
     }
 

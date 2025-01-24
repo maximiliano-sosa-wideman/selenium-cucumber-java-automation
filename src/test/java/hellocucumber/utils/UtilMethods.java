@@ -18,7 +18,6 @@ public class UtilMethods {
         return jsonObject.getString("token");
     }
 
-    // Return the last category ID created with the Category Test
     public String getLastCategoryIDFromList(String jsonString){
         return getValueFromKey("id", jsonString);
     }
@@ -29,7 +28,7 @@ public class UtilMethods {
 
     private String getValueFromKey(String key, String jsonString){
         JSONArray jsonArray = new JSONArray(jsonString);
-        
+
         String value = null;
         for (int i = jsonArray.length() - 1; i >= 0; i--) {
             JSONObject item = jsonArray.getJSONObject(i);

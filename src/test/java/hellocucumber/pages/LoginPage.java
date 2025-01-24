@@ -41,15 +41,15 @@ public class LoginPage extends BasePage {
         driver.close();
     }
 
-    public void setEmail(WebDriver driver, String email){
+    public void setEmail(String email){
         emailField.sendKeys(email);
     }
 
-    public void setPassword(WebDriver driver, String password){
+    public void setPassword(String password){
         passwordField.sendKeys(password);
     }
 
-    public void ClickLogin(WebDriver driver){
+    public void ClickLogin(){
         authButton.click();
     }
 

@@ -22,6 +22,7 @@ public class CategoryEPs {
     private static final String LIST_ALL_CATEGORIES = "https://api.club-administration.qa.qubika.com/api/category-type";
     private static final String DELETE_CATEGORY = "https://api.club-administration.qa.qubika.com/api/category-type/delete/";
 
+    // not yet used
     public HttpResponse<String> createCategory(String name, boolean root){
         // Setups the request body
         String requestBody = new JSONObject()
