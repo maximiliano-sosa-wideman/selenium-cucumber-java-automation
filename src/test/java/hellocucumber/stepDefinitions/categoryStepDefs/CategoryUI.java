@@ -37,6 +37,7 @@ public class CategoryUI {
     @After
     public void deleteCategory(){
         catEPs.deleteCategory(driver, categoryID);
+        page.closeWindow(driver);
     }
 
     @Given("a logged in user")
