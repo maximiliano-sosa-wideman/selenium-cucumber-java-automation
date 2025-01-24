@@ -1,4 +1,4 @@
-package hellocucumber.loginStepDefs;
+package hellocucumber.stepDefinitions.loginStepDefs;
 
 import hellocucumber.pages.LoginPage;
 import io.cucumber.java.After;

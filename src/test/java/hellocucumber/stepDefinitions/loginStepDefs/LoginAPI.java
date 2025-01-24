@@ -1,4 +1,4 @@
-package hellocucumber.loginStepDefs;
+package hellocucumber.stepDefinitions.loginStepDefs;
 
 import hellocucumber.endpoints.LoginEPs;
 import hellocucumber.utils.UtilMethods;
@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import utils.HelperMethods;
 
 import java.net.http.HttpResponse;
 

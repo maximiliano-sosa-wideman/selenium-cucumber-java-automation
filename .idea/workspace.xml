@@ -5,19 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d81f17b9-f400-44b7-8f66-9d2deb38c765" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/CategoryEPs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/BaseRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/UtilMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/environment.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/CategoryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/categoryStepDefs/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/categoryStepDefs/CategoryUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/LoginEPs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/LoginEPs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utils/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/HelperMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/categoryStepDefs/CategoryUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/stepDefinitions/categoryStepDefs/CategoryUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/CategoryEPs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/endpoints/CategoryEPs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/stepDefinitions/loginStepDefs/LoginAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/loginStepDefs/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/stepDefinitions/loginStepDefs/LoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/BaseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/BaseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/UtilMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hellocucumber/utils/UtilMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/hellocucumber/Category.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hellocucumber/Category.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/Category.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/Hooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/Login.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/categoryStepDefs/CategoryUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/endpoints/CategoryEPs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/endpoints/LoginEPs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/loginStepDefs/LoginAPI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/loginStepDefs/LoginUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/pages/BasePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/pages/LoginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/utils/BaseRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hellocucumber/utils/UtilMethods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utils/HelperMethods.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +62,7 @@
     "Cucumber Java.Scenario: Testing the login but with APIs.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "addingCategory",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/maximilianososa/Documents/GitHub/MaxiDemo/hellocucumber/src",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -62,7 +73,11 @@
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/test/resources/hellocucumber" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hellocucumber.pages" />
       <recent name="hellocucumber.endpoints" />
       <recent name="utils" />
       <recent name="hellocucumber.loginStepDefs" />
@@ -75,7 +90,7 @@
         <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Login.feature" />
-      <option name="GLUE" value="hellocucumber.loginStepDefs" />
+      <option name="GLUE" value="hellocucumber.stepDefinitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="hellocucumber" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
@@ -108,7 +123,7 @@
         <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Category.feature" />
-      <option name="GLUE" value="hellocucumber.loginStepDefs hellocucumber.categoryStepDefs" />
+      <option name="GLUE" value="hellocucumber.stepDefinitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="hellocucumber" />
       <option name="NAME_FILTER" value="^Add a simple category$" />
@@ -142,7 +157,7 @@
         <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Login.feature" />
-      <option name="GLUE" value="hellocucumber.loginStepDefs" />
+      <option name="GLUE" value="hellocucumber.stepDefinitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="hellocucumber" />
       <option name="NAME_FILTER" value="^Login with a valid user$" />
@@ -176,7 +191,7 @@
         <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Login.feature" />
-      <option name="GLUE" value="hellocucumber.loginStepDefs" />
+      <option name="GLUE" value="hellocucumber.stepDefinitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="hellocucumber" />
       <option name="NAME_FILTER" value="^Login with many valid or invalid users$" />
@@ -211,6 +226,7 @@
         <option value="$PROJECT_DIR$/environment.env" />
       </option>
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/hellocucumber/Login.feature" />
+      <option name="GLUE" value="hellocucumber.stepDefinitions" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="hellocucumber" />
       <option name="NAME_FILTER" value="^Testing the login but with APIs$" />
