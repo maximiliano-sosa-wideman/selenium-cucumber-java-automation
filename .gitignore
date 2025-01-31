@@ -51,5 +51,7 @@ hs_err_pid*
 *.env
 target/test-classes/hellocucumber/Category.feature
 /target
-.idea/workspace.xml
+.idea/
 target/test-classes/hellocucumber/pages/LoginPage.class
+.DS_Store
+qaenv.properties

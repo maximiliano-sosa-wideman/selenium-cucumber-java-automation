@@ -3,6 +3,7 @@ package hellocucumber.stepDefinitions.categoryStepDefs;
 import hellocucumber.endpoints.CategoryEPs;
 import hellocucumber.endpoints.LoginEPs;
 import hellocucumber.pages.CategoryPage;
+import hellocucumber.utils.ReadProperties;
 import hellocucumber.utils.UtilMethods;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -15,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.http.HttpResponse;
+import java.util.Properties;
 
 public class CategoryUI {
 
@@ -26,6 +28,7 @@ public class CategoryUI {
     String token;
     private String categoryName = "CategoriaTestMaxiTEST2";
     private String categoryID = "";
+    ReadProperties properties = ReadProperties.getInstance();
 
     @Before
     public void setUpPage(){
@@ -43,9 +46,10 @@ public class CategoryUI {
     @Given("a logged in user")
     public void a_Logged_In_User() {
         loginEP = new LoginEPs();
-        HttpResponse<String> response = loginEP.login(
-                System.getenv("VALID_EMAIL"),
-                System.getenv("VALID_PASSWORD"));
+        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
+//                System.getenv("VALID_EMAIL"),
+//                System.getenv("VALID_PASSWORD"));
+
         token = response.body();
     }
 
