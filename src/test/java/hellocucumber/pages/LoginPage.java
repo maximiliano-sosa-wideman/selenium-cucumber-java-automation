@@ -15,15 +15,15 @@ public class LoginPage extends BasePage {
     static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
 
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='email']")
-    private WebElement emailField;
+    private WebElement EMAIL_FIELD;
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='password']")
-    private WebElement passwordField;
+    private WebElement PASSWORD_FIELD;
     @FindBy(how = How.XPATH, using = "//*[@id='sidenav-main']")
-    private WebElement dashboardLink;
+    private WebElement DASHBOARD_LINK;
     @FindBy(how = How.XPATH, using = "//*[@type='submit']")
-    private WebElement authButton;
+    private WebElement AUTH_BUTTON;
     @FindBy(how = How.XPATH, using = "//*[@role='alertdialog']")
-    private WebElement errorToast;
+    private WebElement ERROR_TOAST;
     WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
@@ -41,22 +41,22 @@ public class LoginPage extends BasePage {
     }
 
     public void setEmail(String email, WebDriver driver){
-        util.writeInput(emailField, email, driver);
+        util.writeInput(EMAIL_FIELD, email, driver);
     }
 
     public void setPassword(String password, WebDriver driver){
-        util.writeInput(passwordField, password, driver);
+        util.writeInput(PASSWORD_FIELD, password, driver);
     }
 
     public void clickLogin(WebDriver driver){
-        util.clickElement(authButton, driver);
+        util.clickElement(AUTH_BUTTON, driver);
     }
 
     public boolean isUserloggedin(WebDriver driver){
-        return util.waitUntilDisplayed(dashboardLink, driver);
+        return util.waitUntilDisplayed(DASHBOARD_LINK, driver);
     }
 
     public boolean failedLogin(WebDriver driver){
-        return util.waitUntilDisplayed(errorToast, driver);
+        return util.waitUntilDisplayed(ERROR_TOAST, driver);
     }
 }

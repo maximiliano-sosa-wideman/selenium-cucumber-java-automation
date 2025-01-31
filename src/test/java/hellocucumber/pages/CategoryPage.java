@@ -6,11 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.HelperMethods;
-
-import java.time.Duration;
 
 public class CategoryPage extends BasePage {
 
@@ -22,17 +18,15 @@ public class CategoryPage extends BasePage {
     static final String CATEGORY_URL = "https://club-administration.qa.qubika.com/#/category-type";
 
     @FindBy(how = How.XPATH, using = "//*[text()=' Adicionar']")
-    private WebElement addCategoryButton;
-    @FindBy(how = How.XPATH, using = "//*[@role='alertdialog']")
-    private WebElement errorToast;
+    private WebElement ADD_CATEGORY_BUTTON;
     @FindBy(how = How.XPATH, using = "//*[@id='input-username']")
-    private WebElement categoryNameField;
+    private WebElement CATEGORY_NAME_FIELD;
     @FindBy(how = How.XPATH, using = "//*[@id='customCheckMain']")
-    private WebElement subcategoryCheck;
+    private WebElement SUBCATEGORY_CHECK;
     @FindBy(how = How.XPATH, using = "//*[text()='Aceptar']")
-    private WebElement acceptCategoryButton;
+    private WebElement ACCEPT_CATEGORY_BUTTON;
     @FindBy(how = How.XPATH, using = "//*[text()='Cancelar']")
-    private WebElement cancelCategoryButton;
+    private WebElement CANCEL_CATEGORY_BUTTON;
 
     public CategoryPage(WebDriver driver) {
         super(driver);
@@ -51,27 +45,27 @@ public class CategoryPage extends BasePage {
     }
 
     public void clickAddCategory(WebDriver driver){
-        util.clickElement(addCategoryButton,driver);
+        util.clickElement(ADD_CATEGORY_BUTTON,driver);
 
     }
 
     public void fillCategoryName(WebDriver driver, String categoryName){
-        util.writeInput(categoryNameField, categoryName, driver);
+        util.writeInput(CATEGORY_NAME_FIELD, categoryName, driver);
     }
 
     public void clickCreateCategory(WebDriver driver){
-        util.clickElement(acceptCategoryButton,driver);
+        util.clickElement(ACCEPT_CATEGORY_BUTTON,driver);
     }
 
     // not used
     public void clickCancelCategory(){
-        cancelCategoryButton.click();
+        CANCEL_CATEGORY_BUTTON.click();
     }
 
     //not used
     public void selectSubCategory(Boolean isSub){
         if(isSub){
-            subcategoryCheck.click(); // replace by util.clickELement() method
+            SUBCATEGORY_CHECK.click(); // replace by util.clickELement() method
         }
     }
 
