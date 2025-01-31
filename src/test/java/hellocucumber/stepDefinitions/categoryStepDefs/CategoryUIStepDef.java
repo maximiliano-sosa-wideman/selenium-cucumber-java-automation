@@ -16,9 +16,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.http.HttpResponse;
-import java.util.Properties;
 
-public class CategoryUI {
+public class CategoryUIStepDef {
 
     static LoginEPs loginEP;
     static CategoryPage page;
@@ -69,7 +68,7 @@ public class CategoryUI {
         page.clickCreateCategory(driver);
     }
 
-    @Then("the category creates and can be seen in the CategoryUI table")
+    @Then("the category creates and can be seen in the CategoryUIStepDef table")
     public void the_Category_Can_Be_Seen_In_The_Category_Table() {
 
         // meanwhile we do a way of validating via UI, I validate this via API

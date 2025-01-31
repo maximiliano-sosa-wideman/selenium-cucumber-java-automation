@@ -1,18 +1,17 @@
 package hellocucumber.pages;
 
+import hellocucumber.utils.UtilMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.HelperMethods;
-
-import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
     HelperMethods helperMethods;
+    UtilMethods util = new UtilMethods();
     static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
 
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='email']")
@@ -32,36 +31,32 @@ public class LoginPage extends BasePage {
         helperMethods = new HelperMethods(driver);
     }
 
-    public void ShowLoginPage(WebDriver driver){
+    public void showLoginPage(WebDriver driver){
         driver.get(LOGIN_URL);
         driver.manage().window().maximize();
     }
 
-    public void CloseWindow(WebDriver driver){
+    public void closeWindow(WebDriver driver){
         driver.close();
     }
 
-    public void setEmail(String email){
-        emailField.sendKeys(email);
+    public void setEmail(String email, WebDriver driver){
+        util.writeInput(emailField, email, driver);
     }
 
-    public void setPassword(String password){
-        passwordField.sendKeys(password);
+    public void setPassword(String password, WebDriver driver){
+        util.writeInput(passwordField, password, driver);
     }
 
-    public void ClickLogin(){
-        authButton.click();
+    public void clickLogin(WebDriver driver){
+        util.clickElement(authButton, driver);
     }
 
-    public boolean IsUserLoggedIn(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardLink));
-        return dashboardLink.isDisplayed();
+    public boolean isUserloggedin(WebDriver driver){
+        return util.waitUntilDisplayed(dashboardLink, driver);
     }
 
     public boolean failedLogin(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(errorToast));
-        return errorToast.isDisplayed();
+        return util.waitUntilDisplayed(errorToast, driver);
     }
 }

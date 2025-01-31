@@ -1,6 +1,7 @@
 package hellocucumber.stepDefinitions.loginStepDefs;
 
 import hellocucumber.endpoints.LoginEPs;
+import hellocucumber.utils.ReadProperties;
 import hellocucumber.utils.UtilMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,11 +10,12 @@ import org.junit.jupiter.api.Assertions;
 
 import java.net.http.HttpResponse;
 
-public class LoginAPI {
+public class LoginAPIStepDef {
 
     LoginEPs loginEP;
     public String loginToken;
     UtilMethods util = new UtilMethods();
+    ReadProperties properties = ReadProperties.getInstance();
 
     private static final String LOGIN_EP_URL = "https://api.club-administration.qa.qubika.com/api/auth/login";
 
@@ -29,7 +31,7 @@ public class LoginAPI {
         loginEP = new LoginEPs();
 
         // sets up a variable to save the response and sends the meaningful test information (email/username and password)
-        HttpResponse<String> response = loginEP.login(System.getenv("VALID_EMAIL"), System.getenv("VALID_PASSWORD"));
+        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
 
         loginToken = util.getTokenFromLogin(response);
     }

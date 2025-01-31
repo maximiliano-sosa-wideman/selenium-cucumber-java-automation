@@ -1,5 +1,6 @@
 package hellocucumber.pages;
 
+import hellocucumber.utils.UtilMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,8 +14,9 @@ import java.time.Duration;
 
 public class CategoryPage extends BasePage {
 
-    WebDriverWait wait;
+
     HelperMethods helperMethods;
+    UtilMethods util = new UtilMethods();
 
     static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
     static final String CATEGORY_URL = "https://club-administration.qa.qubika.com/#/category-type";
@@ -49,21 +51,16 @@ public class CategoryPage extends BasePage {
     }
 
     public void clickAddCategory(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(addCategoryButton));
-        addCategoryButton.click();
+        util.clickElement(addCategoryButton,driver);
+
     }
 
     public void fillCategoryName(WebDriver driver, String categoryName){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(categoryNameField));
-        categoryNameField.sendKeys(categoryName);
+        util.writeInput(categoryNameField, categoryName, driver);
     }
 
     public void clickCreateCategory(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(acceptCategoryButton));
-        acceptCategoryButton.click();
+        util.clickElement(acceptCategoryButton,driver);
     }
 
     // not used
@@ -74,7 +71,7 @@ public class CategoryPage extends BasePage {
     //not used
     public void selectSubCategory(Boolean isSub){
         if(isSub){
-            subcategoryCheck.click();
+            subcategoryCheck.click(); // replace by util.clickELement() method
         }
     }
 
