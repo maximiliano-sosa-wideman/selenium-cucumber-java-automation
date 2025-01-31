@@ -57,7 +57,7 @@ public class LoginUIStepDef {
     }
 
     @Then("the user logs in")
-    public void the_user_logs_in() {
+    public void theUserLogsIn() {
         //Asserts that the user has logged in
         Assertions.assertTrue(page.isUserloggedin(driver));
     }

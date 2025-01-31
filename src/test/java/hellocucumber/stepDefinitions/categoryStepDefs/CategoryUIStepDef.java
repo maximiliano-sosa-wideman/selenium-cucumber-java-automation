@@ -43,7 +43,7 @@ public class CategoryUIStepDef {
     }
 
     @Given("a logged in user")
-    public void a_Logged_In_User() {
+    public void aLoggedInUser() {
         loginEP = new LoginEPs();
         HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
 //                System.getenv("VALID_EMAIL"),
@@ -53,7 +53,7 @@ public class CategoryUIStepDef {
     }
 
     @When("they create a category")
-    public void they_Create_A_Category() {
+    public void theyCreateACategory() {
         page.showCategoryPage(driver, token);
         page.clickAddCategory(driver);
     }
@@ -68,8 +68,8 @@ public class CategoryUIStepDef {
         page.clickCreateCategory(driver);
     }
 
-    @Then("the category creates and can be seen in the CategoryUIStepDef table")
-    public void the_Category_Can_Be_Seen_In_The_Category_Table() {
+    @Then("the category creates and can be seen in the CategoryUI table")
+    public void theCategoryCanBeSeenInTheCategoryTable() {
 
         // meanwhile we do a way of validating via UI, I validate this via API
 
