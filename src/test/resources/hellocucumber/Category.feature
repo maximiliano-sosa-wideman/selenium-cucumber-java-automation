@@ -1,6 +1,7 @@
-Feature: Categories
-
+Feature: Category
   Scenario: Add a simple category
     Given a logged in user
     When they create a category
-    Then the category can be seen in the Category table
+    And they write a valid name
+    And they click the accept button
+    Then the category creates and can be seen in the CategoryUI table
