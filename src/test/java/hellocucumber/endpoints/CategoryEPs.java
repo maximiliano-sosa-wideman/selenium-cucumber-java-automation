@@ -51,6 +51,7 @@ public class CategoryEPs {
     }
 
     public void deleteCategory(WebDriver driver, String id){
+
         JavascriptExecutor jexecutor = (JavascriptExecutor) driver;
         String storedKeyValue = jexecutor.executeScript("return window.localStorage.getItem('0.0.1');").toString();
         token = utils.extractToken(storedKeyValue);

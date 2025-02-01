@@ -1,5 +1,4 @@
-Feature: Categories
-
+Feature: Category
   Scenario: Add a simple category
     Given a logged in user
     When they create a category

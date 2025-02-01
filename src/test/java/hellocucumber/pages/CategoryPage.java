@@ -1,18 +1,15 @@
 package hellocucumber.pages;
 
 import hellocucumber.utils.UtilMethods;
-import org.openqa.selenium.JavascriptExecutor;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import utils.HelperMethods;
 
 public class CategoryPage extends BasePage {
 
-
-    HelperMethods helperMethods;
-    UtilMethods util = new UtilMethods();
+    UtilMethods util;
 
     static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
     static final String CATEGORY_URL = "https://club-administration.qa.qubika.com/#/category-type";
@@ -28,33 +25,29 @@ public class CategoryPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//*[text()='Cancelar']")
     private WebElement CANCEL_CATEGORY_BUTTON;
 
-    public CategoryPage(WebDriver driver) {
-        super(driver);
-        helperMethods = new HelperMethods(driver);
+    public CategoryPage(WebDriver driver, Scenario scenario) {
+        super(driver, scenario);
+        util = new UtilMethods(driver);
     }
 
-    public void showCategoryPage(WebDriver driver, String responseBody){
+    public void showCategoryPage(String responseBody){
 
-        driver.get(LOGIN_URL);
-
-        JavascriptExecutor jexecutor = (JavascriptExecutor) driver;
-        jexecutor.executeScript("window.localStorage.setItem('0.0.1', '" + responseBody + "')");
-
-        driver.manage().window().maximize();
-        driver.get(CATEGORY_URL);
-    }
-
-    public void clickAddCategory(WebDriver driver){
-        util.clickElement(ADD_CATEGORY_BUTTON,driver);
+        util.setAuthToken(responseBody);
+        util.navigateTo(CATEGORY_URL);
 
     }
 
-    public void fillCategoryName(WebDriver driver, String categoryName){
-        util.writeInput(CATEGORY_NAME_FIELD, categoryName, driver);
+    public void clickAddCategory(){
+        util.clickElement(ADD_CATEGORY_BUTTON);
+
     }
 
-    public void clickCreateCategory(WebDriver driver){
-        util.clickElement(ACCEPT_CATEGORY_BUTTON,driver);
+    public void fillCategoryName(String categoryName){
+        util.writeInput(CATEGORY_NAME_FIELD, categoryName);
+    }
+
+    public void clickCreateCategory(){
+        util.clickElement(ACCEPT_CATEGORY_BUTTON);
     }
 
     // not used

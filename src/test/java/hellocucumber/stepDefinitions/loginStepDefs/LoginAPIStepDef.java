@@ -1,7 +1,9 @@
 package hellocucumber.stepDefinitions.loginStepDefs;
 
 import hellocucumber.endpoints.LoginEPs;
+import hellocucumber.utils.DriverFactory;
 import hellocucumber.utils.ReadProperties;
+import hellocucumber.utils.RequestFactory;
 import hellocucumber.utils.UtilMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,10 +16,17 @@ public class LoginAPIStepDef {
 
     LoginEPs loginEP;
     public String loginToken;
-    UtilMethods util = new UtilMethods();
+    UtilMethods util;
     ReadProperties properties = ReadProperties.getInstance();
 
     private static final String LOGIN_EP_URL = "https://api.club-administration.qa.qubika.com/api/auth/login";
+    DriverFactory driverFactory;
+    RequestFactory requestFactory;
+
+    public LoginAPIStepDef(RequestFactory requestFactory, DriverFactory driverFactory){
+        this.requestFactory = requestFactory;
+        this.driverFactory = driverFactory;
+    }
 
     @Given("a user wanting to log in by API")
     public void aUserWantingToLogIn() {
@@ -33,7 +42,7 @@ public class LoginAPIStepDef {
         // sets up a variable to save the response and sends the meaningful test information (email/username and password)
         HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
 
-        loginToken = util.getTokenFromLogin(response);
+        loginToken = this.driverFactory.getUtilMethods().getTokenFromLogin(response);
     }
 
     @Then("the user is logged in")

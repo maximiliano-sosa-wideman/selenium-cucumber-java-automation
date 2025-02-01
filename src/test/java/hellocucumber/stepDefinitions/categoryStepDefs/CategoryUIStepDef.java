@@ -2,49 +2,41 @@ package hellocucumber.stepDefinitions.categoryStepDefs;
 
 import hellocucumber.endpoints.CategoryEPs;
 import hellocucumber.endpoints.LoginEPs;
-import hellocucumber.pages.CategoryPage;
+import hellocucumber.utils.DriverFactory;
 import hellocucumber.utils.ReadProperties;
-import hellocucumber.utils.UtilMethods;
+import hellocucumber.utils.RequestFactory;
+import hellocucumber.utils.context.ScenarioContextInfoHolder;
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.http.HttpResponse;
 
 public class CategoryUIStepDef {
 
-    static LoginEPs loginEP;
-    static CategoryPage page;
-    static CategoryEPs catEPs;
-    static WebDriver driver;
-    UtilMethods util = new UtilMethods();
-    String token;
-    private String categoryName = "CategoriaTestMaxiTEST2";
+    private String categoryName = "CategoriaTestMaxiTEST4";
     private String categoryID = "";
+
     ReadProperties properties = ReadProperties.getInstance();
 
-    @Before
-    public void setUpPage(){
-        driver = new ChromeDriver();
-        page = new CategoryPage(driver);
-        catEPs = new CategoryEPs();
-    }
+    String token;
+    DriverFactory driverFactory;
+    RequestFactory requestFactory;
+    LoginEPs loginEP;
+    CategoryEPs catEP;
 
-    @After
-    public void deleteCategory(){
-        catEPs.deleteCategory(driver, categoryID);
-        page.closeWindow(driver);
+    public CategoryUIStepDef(RequestFactory requestFactory, DriverFactory driverFactory){
+        this.loginEP = new LoginEPs();
+        this.catEP = new CategoryEPs();
+        this.requestFactory = requestFactory;
+        this.driverFactory = driverFactory;
     }
 
     @Given("a logged in user")
     public void aLoggedInUser() {
-        loginEP = new LoginEPs();
         HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
 //                System.getenv("VALID_EMAIL"),
 //                System.getenv("VALID_PASSWORD"));
@@ -54,18 +46,20 @@ public class CategoryUIStepDef {
 
     @When("they create a category")
     public void theyCreateACategory() {
-        page.showCategoryPage(driver, token);
-        page.clickAddCategory(driver);
+        this.driverFactory.getCategoryPage().showCategoryPage(token);
+        this.driverFactory.getCategoryPage().clickAddCategory();
     }
 
     @And("they write a valid name")
     public void theyWriteAValidName() {
-        page.fillCategoryName(driver, categoryName);
+        this.driverFactory.getCategoryPage().fillCategoryName(categoryName);
+//        page.fillCategoryName(driver, categoryName);
     }
 
     @And("they click the accept button")
     public void theyClickTheAcceptButton() {
-        page.clickCreateCategory(driver);
+        this.driverFactory.getCategoryPage().clickCreateCategory();
+//        page.clickCreateCategory(driver);
     }
 
     @Then("the category creates and can be seen in the CategoryUI table")
@@ -73,8 +67,14 @@ public class CategoryUIStepDef {
 
         // meanwhile we do a way of validating via UI, I validate this via API
 
-        HttpResponse<String> response = catEPs.listAllCategories(driver);
-        categoryID = util.getLastCategoryIDFromList(response.body());
-        Assertions.assertEquals(categoryName, util.getLastCategoryNameFromList(response.body()));
+        HttpResponse<String> response = catEP.listAllCategories(this.driverFactory.getDriver());
+//        categoryID = util.getLastCategoryIDFromList(response.body());
+        categoryID = this.driverFactory.getUtilMethods().getLastCategoryIDFromList(response.body());
+//        Assertions.assertEquals(categoryName, util.getLastCategoryNameFromList(response.body()));
+        Assertions.assertEquals(categoryName, this.driverFactory.getUtilMethods().getLastCategoryNameFromList(response.body()));
+    }
+    @After
+    public void deleteCategory(){
+        catEP.deleteCategory(this.driverFactory.getDriver(), categoryID);
     }
 }

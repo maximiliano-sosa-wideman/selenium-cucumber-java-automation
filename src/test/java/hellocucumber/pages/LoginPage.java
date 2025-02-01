@@ -1,18 +1,17 @@
 package hellocucumber.pages;
 
 import hellocucumber.utils.UtilMethods;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.HelperMethods;
+//import utils.HelperMethods;
 
 public class LoginPage extends BasePage {
 
-    HelperMethods helperMethods;
-    UtilMethods util = new UtilMethods();
-    static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
+    UtilMethods util;
 
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='email']")
     private WebElement EMAIL_FIELD;
@@ -26,37 +25,31 @@ public class LoginPage extends BasePage {
     private WebElement ERROR_TOAST;
     WebDriverWait wait;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-        helperMethods = new HelperMethods(driver);
+    public LoginPage(WebDriver driver, Scenario scenario) {
+        super(driver, scenario);
+        util = new UtilMethods(driver);
     }
 
-    public void showLoginPage(WebDriver driver){
-        driver.get(LOGIN_URL);
-        driver.manage().window().maximize();
+    public void showLoginPage(){
     }
 
-    public void closeWindow(WebDriver driver){
-        driver.close();
+    public void setEmail(String email){
+        util.writeInput(EMAIL_FIELD, email);
     }
 
-    public void setEmail(String email, WebDriver driver){
-        util.writeInput(EMAIL_FIELD, email, driver);
+    public void setPassword(String password){
+        util.writeInput(PASSWORD_FIELD, password);
     }
 
-    public void setPassword(String password, WebDriver driver){
-        util.writeInput(PASSWORD_FIELD, password, driver);
+    public void clickLogin(){
+        util.clickElement(AUTH_BUTTON);
     }
 
-    public void clickLogin(WebDriver driver){
-        util.clickElement(AUTH_BUTTON, driver);
+    public boolean isUserloggedin(){
+        return util.waitUntilDisplayed(DASHBOARD_LINK);
     }
 
-    public boolean isUserloggedin(WebDriver driver){
-        return util.waitUntilDisplayed(DASHBOARD_LINK, driver);
-    }
-
-    public boolean failedLogin(WebDriver driver){
-        return util.waitUntilDisplayed(ERROR_TOAST, driver);
+    public boolean failedLogin(){
+        return util.waitUntilDisplayed(ERROR_TOAST);
     }
 }
