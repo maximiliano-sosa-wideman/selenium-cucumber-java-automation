@@ -40,7 +40,7 @@ public class LoginAPIStepDef {
         loginEP = new LoginEPs();
 
         // sets up a variable to save the response and sends the meaningful test information (email/username and password)
-        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
+        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), System.getenv("VALID_PASSWORD"));
 
         loginToken = this.driverFactory.getUtilMethods().getTokenFromLogin(response);
     }

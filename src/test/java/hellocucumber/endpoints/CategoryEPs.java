@@ -1,26 +1,29 @@
 package hellocucumber.endpoints;
 
 import hellocucumber.utils.BaseRequest;
+import hellocucumber.utils.DriverFactory;
+import hellocucumber.utils.ReadProperties;
 import hellocucumber.utils.UtilMethods;
+import net.bytebuddy.asm.MemberSubstitution;
 import org.json.JSONObject;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.Driver;
 
 public class CategoryEPs {
 
     HttpClient client;
     BaseRequest baseRequest;
     UtilMethods utils = new UtilMethods();
+    ReadProperties properties = ReadProperties.getInstance();
+    DriverFactory driverFactory;
 
     private String token = "";
-
-    private static final String CREATE_CATEGORY_EP = "https://api.club-administration.qa.qubika.com/api/category-type/create";
-    private static final String LIST_ALL_CATEGORIES = "https://api.club-administration.qa.qubika.com/api/category-type";
-    private static final String DELETE_CATEGORY = "https://api.club-administration.qa.qubika.com/api/category-type/delete/";
 
     // not yet used
     public HttpResponse<String> createCategory(String name, boolean root){
@@ -32,7 +35,7 @@ public class CategoryEPs {
 
         // prepares the request with the supplied information.
         baseRequest = new BaseRequest();
-        HttpRequest request = baseRequest.prepareRequest(CREATE_CATEGORY_EP, requestBody);
+        HttpRequest request = baseRequest.prepareRequest(properties.getProperty("CREATE_CATEGORY_EP"), requestBody);
 
         // instantiates a new client and sends the request
         client = HttpClient.newHttpClient();
@@ -40,24 +43,22 @@ public class CategoryEPs {
     }
 
     public HttpResponse<String> listAllCategories(WebDriver driver){
-        JavascriptExecutor jexecutor = (JavascriptExecutor) driver;
-        String storedKeyValue = jexecutor.executeScript("return window.localStorage.getItem('0.0.1');").toString();
+        String storedKeyValue = utils.getAuthToken(driver);
         token = utils.extractToken(storedKeyValue);
 
         baseRequest = new BaseRequest();
-        HttpRequest request = baseRequest.prepareGETRequest(LIST_ALL_CATEGORIES, token);
+        HttpRequest request = baseRequest.prepareGETRequest(properties.getProperty("LIST_ALL_CATEGORIES"), token);
         client = HttpClient.newHttpClient();
         return baseRequest.sendRequest(client, request);
     }
 
     public void deleteCategory(WebDriver driver, String id){
 
-        JavascriptExecutor jexecutor = (JavascriptExecutor) driver;
-        String storedKeyValue = jexecutor.executeScript("return window.localStorage.getItem('0.0.1');").toString();
+        String storedKeyValue = utils.getAuthToken(driver);
         token = utils.extractToken(storedKeyValue);
 
         baseRequest = new BaseRequest();
-        HttpRequest request = baseRequest.prepareDELETERequest(DELETE_CATEGORY + id, token);
+        HttpRequest request = baseRequest.prepareDELETERequest(properties.getProperty("DELETE_CATEGORY") + id, token);
         client = HttpClient.newHttpClient();
         baseRequest.sendRequest(client, request);
     }

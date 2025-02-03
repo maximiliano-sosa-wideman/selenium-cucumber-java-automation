@@ -52,6 +52,13 @@ public class UtilMethods {
         }
     }
 
+    private JavascriptExecutor createJSE(WebDriver driver){
+
+            return (JavascriptExecutor) driver;
+
+    }
+
+
     public void navigateTo(String url){
         this.driver.get(url);
     }
@@ -59,6 +66,11 @@ public class UtilMethods {
     public void setAuthToken(String responseBody){
         JavascriptExecutor jexecutor = createJSE();
         jexecutor.executeScript("window.localStorage.setItem('0.0.1', '" + responseBody + "')");
+    }
+
+    public String getAuthToken(WebDriver driver){
+        JavascriptExecutor jexecutor = createJSE(driver);
+        return jexecutor.executeScript("return window.localStorage.getItem('0.0.1');").toString();
     }
 
     public static ChromeOptions chromeOptionsConfig() {

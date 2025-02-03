@@ -17,7 +17,7 @@ import java.net.http.HttpResponse;
 
 public class CategoryUIStepDef {
 
-    private String categoryName = "CategoriaTestMaxiTEST4";
+    private String categoryName = "CategoriaTestMaxiTEST5";
     private String categoryID = "";
 
     ReadProperties properties = ReadProperties.getInstance();
@@ -37,10 +37,7 @@ public class CategoryUIStepDef {
 
     @Given("a logged in user")
     public void aLoggedInUser() {
-        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), properties.getProperty("VALID_PASSWORD"));
-//                System.getenv("VALID_EMAIL"),
-//                System.getenv("VALID_PASSWORD"));
-
+        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), System.getenv("VALID_PASSWORD"));
         token = response.body();
     }
 
@@ -68,9 +65,7 @@ public class CategoryUIStepDef {
         // meanwhile we do a way of validating via UI, I validate this via API
 
         HttpResponse<String> response = catEP.listAllCategories(this.driverFactory.getDriver());
-//        categoryID = util.getLastCategoryIDFromList(response.body());
         categoryID = this.driverFactory.getUtilMethods().getLastCategoryIDFromList(response.body());
-//        Assertions.assertEquals(categoryName, util.getLastCategoryNameFromList(response.body()));
         Assertions.assertEquals(categoryName, this.driverFactory.getUtilMethods().getLastCategoryNameFromList(response.body()));
     }
     @After

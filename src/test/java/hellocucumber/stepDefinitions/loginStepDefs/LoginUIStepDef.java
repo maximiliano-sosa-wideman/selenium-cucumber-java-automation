@@ -35,7 +35,7 @@ public class LoginUIStepDef {
     @When("a valid password is inputted")
     public void a_valid_password_is_inputed() {
 //        page.setPassword(properties.getProperty("VALID_PASSWORD"), driver);
-        this.driverFactory.getLoginPage().setPassword(properties.getProperty("VALID_PASSWORD"));
+        this.driverFactory.getLoginPage().setPassword(System.getenv("VALID_PASSWORD"));
     }
 
     @When("the user clicks the login button")
