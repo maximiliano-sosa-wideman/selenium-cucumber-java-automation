@@ -1,6 +1,7 @@
 package hellocucumber.pages;
 
 import hellocucumber.utils.UtilMethods;
+import hellocucumber.utils.constants.DataConstants;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,7 +34,7 @@ public class CategoryPage extends BasePage {
     public void showCategoryPage(String responseBody){
 
         util.setAuthToken(responseBody);
-        util.navigateTo(CATEGORY_URL);
+        util.navigateTo(DataConstants.CATEGORY_URL);
 
     }
 
@@ -58,7 +59,7 @@ public class CategoryPage extends BasePage {
     //not used
     public void selectSubCategory(Boolean isSub){
         if(isSub){
-            SUBCATEGORY_CHECK.click(); // replace by util.clickELement() method
+            SUBCATEGORY_CHECK.click(); // replace by util method to click
         }
     }
 

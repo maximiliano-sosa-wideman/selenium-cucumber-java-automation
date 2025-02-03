@@ -23,7 +23,6 @@ public class LoginPage extends BasePage {
     private WebElement AUTH_BUTTON;
     @FindBy(how = How.XPATH, using = "//*[@role='alertdialog']")
     private WebElement ERROR_TOAST;
-    WebDriverWait wait;
 
     public LoginPage(WebDriver driver, Scenario scenario) {
         super(driver, scenario);

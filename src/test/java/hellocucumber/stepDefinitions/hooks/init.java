@@ -2,6 +2,7 @@ package hellocucumber.stepDefinitions.hooks;
 
 import hellocucumber.utils.DriverFactory;
 import hellocucumber.utils.ReadProperties;
+import hellocucumber.utils.constants.DataConstants;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -38,7 +39,7 @@ public class init {
 							+ " and environment : " + LocalTime.now());
 		}
 		this.driverFactory.getDriver().manage().window().maximize();
-		this.driverFactory.getDriver().get(ReadProperties.getInstance().getProperty("LOGIN_URL"));
+		this.driverFactory.getDriver().get(DataConstants.LOGIN_URL);
 		this.driverFactory.setRequestFactory(this.driverFactory.getRequestFactory());
 		this.driverFactory.InitializePageObject(this.driverFactory.getDriver(), scenario);
 	}

@@ -29,24 +29,20 @@ public class LoginUIStepDef {
     @When("a valid email is inputted")
     public void a_valid_email_is_inputed() {
         this.driverFactory.getLoginPage().setEmail(properties.getProperty("VALID_EMAIL"));
-//        page.setEmail(properties.getProperty("VALID_EMAIL"), driver);
     }
 
     @When("a valid password is inputted")
     public void a_valid_password_is_inputed() {
-//        page.setPassword(properties.getProperty("VALID_PASSWORD"), driver);
         this.driverFactory.getLoginPage().setPassword(System.getenv("VALID_PASSWORD"));
     }
 
     @When("the user clicks the login button")
     public void the_user_clicks_the_login_button() {
-        //Actually logging in
         this.driverFactory.getLoginPage().clickLogin();
     }
 
     @Then("the user logs in")
     public void theUserLogsIn() {
-        //Asserts that the user has logged in
         Assertions.assertTrue(this.driverFactory.getLoginPage().isUserloggedin());
     }
 
@@ -63,12 +59,10 @@ public class LoginUIStepDef {
     @And("the user enters the wrong password as {string}")
     public void theUserEntersTheWrongPasswordAsPassword(String password) {
         this.driverFactory.getLoginPage().setPassword(password);
-
     }
 
     @Then("the user cannot log in")
     public void theUserCannotLogIn() {
-//        Assertions.assertTrue(page.failedLogin(driver));
         Assertions.assertTrue(this.driverFactory.getLoginPage().failedLogin());
     }
 

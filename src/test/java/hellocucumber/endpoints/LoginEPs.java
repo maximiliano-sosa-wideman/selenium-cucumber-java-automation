@@ -2,6 +2,7 @@ package hellocucumber.endpoints;
 
 import hellocucumber.utils.BaseRequest;
 import hellocucumber.utils.ReadProperties;
+import hellocucumber.utils.constants.DataConstants;
 import org.json.JSONObject;
 
 import java.net.URI;
@@ -23,7 +24,7 @@ public class LoginEPs {
 
         // prepares the request with the supplied information.
         baseRequest = new BaseRequest();
-        HttpRequest request = baseRequest.prepareRequest(ReadProperties.getInstance().getProperty("LOGIN_EP_URL"), requestBody);
+        HttpRequest request = baseRequest.prepareRequest(DataConstants.LOGIN_EP_URL, requestBody);
 
         // instantiates a new client and sends the request
         client = HttpClient.newHttpClient();
