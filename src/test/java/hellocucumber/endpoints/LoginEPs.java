@@ -1,6 +1,8 @@
 package hellocucumber.endpoints;
 
 import hellocucumber.utils.BaseRequest;
+import hellocucumber.utils.ReadProperties;
+import hellocucumber.utils.constants.DataConstants;
 import org.json.JSONObject;
 
 import java.net.URI;
@@ -13,9 +15,6 @@ public class LoginEPs {
     HttpClient client;
     BaseRequest baseRequest;
 
-    private static final String LOGIN_EP_URL = "https://api.club-administration.qa.qubika.com/api/auth/login";
-
-
     public HttpResponse<String> login(String email, String password){
         // Setups the request body
         String requestBody = new JSONObject()
@@ -25,7 +24,7 @@ public class LoginEPs {
 
         // prepares the request with the supplied information.
         baseRequest = new BaseRequest();
-        HttpRequest request = baseRequest.prepareRequest(LOGIN_EP_URL, requestBody);
+        HttpRequest request = baseRequest.prepareRequest(DataConstants.LOGIN_EP_URL, requestBody);
 
         // instantiates a new client and sends the request
         client = HttpClient.newHttpClient();

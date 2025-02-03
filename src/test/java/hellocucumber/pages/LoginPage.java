@@ -1,67 +1,54 @@
 package hellocucumber.pages;
 
+import hellocucumber.utils.UtilMethods;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.HelperMethods;
-
-import java.time.Duration;
+//import utils.HelperMethods;
 
 public class LoginPage extends BasePage {
 
-    HelperMethods helperMethods;
-    static final String LOGIN_URL = "https://club-administration.qa.qubika.com/#/auth/login";
+    UtilMethods util;
 
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='email']")
-    private WebElement emailField;
+    private WebElement EMAIL_FIELD;
     @FindBy(how = How.XPATH, using = "//*[@formcontrolname='password']")
-    private WebElement passwordField;
+    private WebElement PASSWORD_FIELD;
     @FindBy(how = How.XPATH, using = "//*[@id='sidenav-main']")
-    private WebElement dashboardLink;
+    private WebElement DASHBOARD_LINK;
     @FindBy(how = How.XPATH, using = "//*[@type='submit']")
-    private WebElement authButton;
+    private WebElement AUTH_BUTTON;
     @FindBy(how = How.XPATH, using = "//*[@role='alertdialog']")
-    private WebElement errorToast;
-    WebDriverWait wait;
+    private WebElement ERROR_TOAST;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-        helperMethods = new HelperMethods(driver);
+    public LoginPage(WebDriver driver, Scenario scenario) {
+        super(driver, scenario);
+        util = new UtilMethods(driver);
     }
 
-    public void ShowLoginPage(WebDriver driver){
-        driver.get(LOGIN_URL);
-        driver.manage().window().maximize();
+    public void showLoginPage(){
     }
 
-    public void CloseWindow(WebDriver driver){
-        driver.close();
+    public void setEmail(String email){
+        util.writeInput(EMAIL_FIELD, email);
     }
 
-    public void setEmail(WebDriver driver, String email){
-        emailField.sendKeys(email);
+    public void setPassword(String password){
+        util.writeInput(PASSWORD_FIELD, password);
     }
 
-    public void setPassword(WebDriver driver, String password){
-        passwordField.sendKeys(password);
+    public void clickLogin(){
+        util.clickElement(AUTH_BUTTON);
     }
 
-    public void ClickLogin(WebDriver driver){
-        authButton.click();
+    public boolean isUserloggedin(){
+        return util.waitUntilDisplayed(DASHBOARD_LINK);
     }
 
-    public boolean IsUserLoggedIn(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardLink));
-        return dashboardLink.isDisplayed();
-    }
-
-    public boolean failedLogin(WebDriver driver){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.elementToBeClickable(errorToast));
-        return errorToast.isDisplayed();
+    public boolean failedLogin(){
+        return util.waitUntilDisplayed(ERROR_TOAST);
     }
 }
