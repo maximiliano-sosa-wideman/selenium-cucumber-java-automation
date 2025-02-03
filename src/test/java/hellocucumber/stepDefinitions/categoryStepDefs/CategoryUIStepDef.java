@@ -5,6 +5,7 @@ import hellocucumber.endpoints.LoginEPs;
 import hellocucumber.utils.DriverFactory;
 import hellocucumber.utils.ReadProperties;
 import hellocucumber.utils.RequestFactory;
+import hellocucumber.utils.constants.DataConstants;
 import hellocucumber.utils.context.ScenarioContextInfoHolder;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
@@ -37,7 +38,7 @@ public class CategoryUIStepDef {
 
     @Given("a logged in user")
     public void aLoggedInUser() {
-        HttpResponse<String> response = loginEP.login(properties.getProperty("VALID_EMAIL"), System.getenv("VALID_PASSWORD"));
+        HttpResponse<String> response = loginEP.login(DataConstants.VALID_EMAIL, System.getenv("VALID_PASSWORD"));
         token = response.body();
     }
 
