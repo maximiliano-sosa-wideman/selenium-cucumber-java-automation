@@ -4,7 +4,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
 
 public class BaseRequest {
 
@@ -18,13 +17,34 @@ public class BaseRequest {
                 .build();
     }
 
-    public HttpRequest prepareRequest(String url, String requestBody, String authToken){
+    public HttpRequest prepareGETRequest(String url, String token){
 
         return HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer" + authToken)
-                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                .header("Authorization", "Bearer " + token)
+                .GET()
+                .build();
+    }
+
+    // not yet used
+//    public HttpRequest prepareRequest(String url, String requestBody, String authToken){
+//
+//        return HttpRequest.newBuilder()
+//                .uri(URI.create(url))
+//                .header("Content-Type", "application/json")
+//                .header("Authorization", "Bearer" + authToken)
+//                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+//                .build();
+//    }
+
+    public HttpRequest prepareDELETERequest(String url, String token){
+
+        return HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .DELETE()
                 .build();
     }
 

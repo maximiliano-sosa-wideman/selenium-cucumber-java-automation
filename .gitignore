@@ -49,3 +49,9 @@ hs_err_pid*
 
 ### Custom Rules ###
 *.env
+target/test-classes/hellocucumber/Category.feature
+/target
+.idea/
+target/test-classes/hellocucumber/pages/LoginPage.class
+.DS_Store
+qaenv.properties
